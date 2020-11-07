@@ -9,7 +9,6 @@ function parse(data) {
         } else {
             hospitaldict[data["features"][key]["attributes"]["STATE"]] = [data["features"][key]["attributes"]["NAME"]]
         }
-        console.log(data["features"][key]["attributes"]["STATE"])
     }
     console.log(hospitaldict)
 }
