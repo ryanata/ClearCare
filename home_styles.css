@@ -28,13 +28,13 @@ nav {
   float: right;
 }
 
-nav ul {
+div nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-nav li {
+div nav li {
   display: inline-block;
   margin-left: 70px;
   padding-top: 37px;
@@ -67,4 +67,11 @@ nav a::before {
 
 nav a:hover::before {
   width: 100%;
+}
+
+.form_div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
