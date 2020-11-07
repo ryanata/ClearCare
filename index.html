@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>ClearCare</title>
-</head>
-<body>
-    <div class = "full-div">
-        <div class = "top-nav-div">
+  </head>
+  <body>
+    <div class="full-div">
+      <div class="top-nav-div"></div>
 
-        </div>
+      <div class="form-div">
+        <!--return false prevents the form from redirecting-->
+        <form
+          class="autocomplete form"
+          autocomplete="off"
+          onsubmit="return false"
+        >
+          <div class="autocomplete" style="width: 300px">
+            <input
+              id="treatmentSearch"
+              type="text"
+              placeholder="Treatment / Illness"
+            />
+          </div>
 
-        <div class = "form-div">
-            <!--return false prevents the form from redirecting-->
-            <form class="autocomplete form" autocomplete="off" onsubmit="return false">
-                <div class="autocomplete" style="width:300px;">
-                  <input id="treatmentSearch" type="text" placeholder="Treatment / Illness">
-                </div>
-
-                <div class="autocomplete" style="width:300px;">
-                    <input id="regionSearch" type="text" placeholder="Region">
-                  </div>
-                  <button onclick="myFunction()">Submit</button>
-            </form>    
-        </div>
-        <p id = "searchResult"></p>
+          <div class="autocomplete" style="width: 300px">
+            <input id="regionSearch" type="text" placeholder="Region" />
+          </div>
+          <button onclick="myFunction()">Submit</button>
+        </form>
+      </div>
+      <p id="searchResult"></p>
     </div>
 
     <script type="text/javascript" src="search.js"></script>
-</body>
+  </body>
 </html>

@@ -50,7 +50,7 @@ nav > ul > li > a {
 }
 
 nav a:hover {
-  color: #000;
+  color: #e1f5ff;
 }
 
 nav a::before {
@@ -59,4 +59,12 @@ nav a::before {
   height: 5px;
   width: 100%;
   background-color: #e1f5ff;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
 }
