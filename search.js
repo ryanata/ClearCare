@@ -336,7 +336,9 @@ function myFunction() {
     x + " is the treatment. " + y + " is the region.";
 }
 
-async function onResponse(boi) {}
+function onResponse(jsonBody) {
+  console.log(jsonBody);
+}
 
 function getData() {
   var myHeaders = new Headers();
@@ -349,17 +351,21 @@ function getData() {
     redirect: "follow",
   };
 
-  // problem is in the fetch
-  var x;
   fetch(
     "https://industrial-silo-289002.firebaseio.com/states/ak.json",
     requestOptions
   )
     .then(function (response) {
-      x = response.text();
+      response
+        .text()
+        .then((data) => ({
+          data: data,
+          status: response.status,
+        }))
+        .then(function (res) {
+          onResponse(res);
+        });
     })
+    .then(function (result) {})
     .catch((error) => console.log("error", error));
-
-  // this is not printing the correct value
-  console.log(x);
 }
