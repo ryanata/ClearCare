@@ -7,10 +7,14 @@
     <title>ClearCare</title>
 </head>
 <body>
-    <div>
-        <div>
+    <div class = "full-div">
+        <div class = "top-nav-div">
+
+        </div>
+
+        <div class = "form-div">
             <!--return false prevents the form from redirecting-->
-            <form autocomplete="off" onsubmit="return false">
+            <form class="autocomplete form" autocomplete="off" onsubmit="return false">
                 <div class="autocomplete" style="width:300px;">
                   <input id="treatmentSearch" type="text" placeholder="Treatment / Illness">
                 </div>
@@ -19,8 +23,7 @@
                     <input id="regionSearch" type="text" placeholder="Region">
                   </div>
                   <button onclick="myFunction()">Submit</button>
-            </form>
-            
+            </form>    
         </div>
         <p id = "searchResult"></p>
     </div>
