@@ -32,15 +32,23 @@
       </div>
     </header>
     <div class="form_div">
-      <form class="enter_location" autocomplete="off" onsubmit="return false">
-        <div class="text_region">
+      <!--return false prevents the form from redirecting-->
+      <form
+        class="autocomplete form"
+        autocomplete="off"
+        onsubmit="return false"
+      >
+        <div class="autocomplete">
           <input
-            id="location_search"
+            id="treatmentSearch"
             type="text"
-            placeholder="Enter zip code here"
+            placeholder="Treatment / Illness"
           />
-          <input type="submit" value="Submit" />
         </div>
+        <div class="autocomplete">
+          <input id="regionSearch" type="text" placeholder="Region" />
+        </div>
+        <input type="submit" onclick="getData()"></button>
       </form>
     </div>
   </body>
