@@ -1,0 +1,15 @@
+var data = JSON.stringify({"699669":{"city":"SOLDOTNA","lat":60.493169052,"long":-151.077826958,"name":"CENTRAL PENINSULA GENERAL HOSPITAL"},"999506":{"name":"ELMENDORF AFB HOSPITAL"},"1299701":{"name":"FAIRBANKS MEMORIAL HOSPITAL"},"1799835":{"name":"MT EDGECUMBE HOSPITAL - SEARHC"},"2099559":{"name":"YUKON - KUSKOKWIM DELTA REGIONAL HOSPITAL"},"2299752":{"name":"MANIILAQ MEDICAL CENTER"},"2399762":{"name":"NORTON SOUND REGIONAL HOSPITAL"},"2499645":{"name":"MAT-SU REGIONAL MEDICAL CENTER"},"2699686":{"name":"PROVIDENCE VALDEZ MEDICAL CENTER"},"60699546":{"name":"ADAK MEDICAL CENTER - EAT"}});
+
+var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+
+xhr.open("PUT", "https://industrial-silo-289002.firebaseio.com/states/ak.json");
+xhr.setRequestHeader("Content-Type", "application/json");
+
+xhr.send(data);

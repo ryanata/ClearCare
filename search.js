@@ -105,3 +105,24 @@ function myFunction() {
     var y = document.getElementById("regionSearch").value;
     document.getElementById("searchResult").innerHTML = x + " is the treatment. " + y + " is the region.";
   }
+
+
+  function getData(){
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = "";
+
+    var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+    };
+    
+    fetch("https://industrial-silo-289002.firebaseio.com/states/ak.json", requestOptions)
+    .then(response => response.text())
+    .then(function(result) {
+        return console.log(result);
+    })
+    .catch(error => console.log('error', error));
+}
+
