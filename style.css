@@ -47,3 +47,26 @@ input[type=submit] {
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
+
+.full-div{
+    width: 100%;
+    height: 100%;
+}
+
+.top-nav-div{
+    width: 100%;
+    height: 50px;
+}
+
+.form-div{
+    width: 100%;
+    height: 40px;
+
+    margin-top: 15.6%;
+
+    text-align: center;
+}
+
+.autocomplete-form{
+    display: inline-block;
+}
