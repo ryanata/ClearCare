@@ -9,10 +9,22 @@
 <body>
     <div>
         <div>
-            <input type="text" id = "hospital-search" placeholder="Search..">
-            <input type="text" id = "treatment-search" placeholder="Search..">
+            <!--return false prevents the form from redirecting-->
+            <form autocomplete="off" onsubmit="return false">
+                <div class="autocomplete" style="width:300px;">
+                  <input id="treatmentSearch" type="text" placeholder="Treatment / Illness">
+                </div>
+
+                <div class="autocomplete" style="width:300px;">
+                    <input id="regionSearch" type="text" placeholder="Region">
+                  </div>
+                  <button onclick="myFunction()">Submit</button>
+            </form>
+            
         </div>
+        <p id = "searchResult"></p>
     </div>
-    
+
+    <script type="text/javascript" src="search.js"></script>
 </body>
 </html>
