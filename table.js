@@ -35,7 +35,7 @@ function loadTable(hospitalData) {
   let dataHtml = "";
 
   for (let data of hospitalData) {
-    dataHtml += `<tr><td>${data.hospital}</td><td>${data.treatment}</td><td>${data.location}</td><td>${data.treatment}</td></tr>`;
+    dataHtml += `<tr><td>${data.hospital}</td><td>${data.treatment}</td><td>${data.location}</td><td>${data.price}</td></tr>`;
   }
   tableBody.innerHTML = dataHtml;
 }

@@ -97,25 +97,36 @@ nav a:hover::before {
   margin: 0 auto;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 20%;
   transform: translate(-50%, -50%);
 }
 
-.hospital_table {
+td,
+th {
+  border: 1px solid #cccccc;
   padding: 8px;
 }
 
-.hospital_table table thead tr th {
-  border: 1px solid #cccccc;
-  padding: 10px;
-}
-
-.hospital_table table {
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 35%;
 }
 
-.hospital_table table thead th {
+table thead th {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+th {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
