@@ -7,6 +7,7 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="contribute_styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -24,15 +25,39 @@
             <ul>
               <li><a href="home.html">Home</a></li>
               <li><a href="contribute.html">Contribute</a></li>
-              <li><a href="#">About</a></li>
+              <li><a href="about.html">About</a></li>
               <li><a href="#">Pricing</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </nav>
         </div>
       </div>
-      <div class="form_div"><form action=""</div>
     </header>
-    <script src="" async defer></script>
+    <p>
+      <h1 style="margin-left:1%">Make a Contribution!</h1>
+    </p>
+    <div class="form_div" style="margin-top:.5%; margin-left:1%">
+      <form action="">
+        <div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="location" type="text" placeholder="Location" />
+          </div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="nameOfHospital" type="text" placeholder="Name of Hospital" />
+          </div>
+        </div>
+        <div style="margin-top:1%">
+          <div class="contribute" style="width: 300px;margin-top:.5%">
+            <input id="typeOfTreatment" type="text" placeholder="Type of Treatment" />
+          </div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="costOfTreatment" type="text" placeholder="Cost of Treatment" />
+          </div>
+        </div>
+        <button class="submit-button" type="button" style="margin-top:1%" id = "search-submit-button" onclick="getContribution()">Submit</button>
+      </form>
+    </div>
+    <p id="contribution"></p>
+    <script src="./contribute.js" async defer></script>
   </body>
 </html>
