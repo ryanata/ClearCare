@@ -129,12 +129,7 @@ function onResponse(jsonBody) {
 
   console.log(mydatas);
 
-<<<<<<< HEAD
-  //document.getElementById("searchResult").innerHTML =
-  //  "The ciy is " + mydatas
-=======
   document.getElementById("searchResult").innerHTML = "The ciy is " + mydatas;
->>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
 }
 
 function getData() {
@@ -166,8 +161,6 @@ function getData() {
     .catch((error) => console.log("error", error));
 }
 
-<<<<<<< HEAD
-=======
 var searchElement = document.getElementById("searchResult");
 
 function getLocation() {
@@ -185,4 +178,3 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude;
 }
->>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
