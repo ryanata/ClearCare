@@ -1,4 +1,4 @@
-var searchElement = document.getElementById("searchResult");
+var searchElement = document.getElementById("regionSearch");
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -16,7 +16,7 @@ function showPosition(position) {
 function readState(input){
     console.log(input);
     $('#regionSearch').val(input);
-    $('#search-submit-button').trigger('click');
+    $('#submitButton').trigger('click');
 }
 
 
@@ -54,5 +54,3 @@ function callMapAPI(lati,long){
     .catch(err => console.warn(err.message));
 
 }
-
-console.log(state);
