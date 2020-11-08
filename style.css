@@ -70,3 +70,11 @@ input[type=submit] {
 .autocomplete-form{
     display: inline-block;
 }
+
+.geo-button{
+  font-size:13px;
+}
+
+.submit-button{
+  font-size: 20px;
+}
