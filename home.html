@@ -34,9 +34,11 @@
         </div>
         <div class="autocomplete" id="regionDiv">
           <input id="regionSearch" type="text" placeholder="Enter city, state, or zip code" />
+          <span title="Get current location">
+            <button class="geo-button" id="geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
+          </span>
         </div>
         <input id="submitButton" type="submit" onclick="getData()"></button>
-        <button class="geo-button" id="geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
       </form>
     </div>
 </body>
