@@ -72,7 +72,7 @@ let states = [
   "Washington",
   "West Virginia",
   "Wisconsin",
-  "Wyoming"
+  "Wyoming",
 ];
 
 let treatments = [
@@ -413,7 +413,10 @@ function onResponse(jsonBody) {
   let listOfHospitals = [];
   let listOfHospitalID = [];
 
-  if (region_inp.localeCompare("AK") == 0) {
+  if (
+    region_inp.localeCompare("AK") == 0 ||
+    region_inp.localeCompare("Alaska") == 0
+  ) {
     let ak_dict = mydatas["ak"];
     var keys = $.map(ak_dict, function (value, key) {
       return key;
@@ -439,7 +442,10 @@ function onResponse(jsonBody) {
     );
   }
 
-  if (region_inp.localeCompare("Pennsylvania") == 0) {
+  if (
+    region_inp.localeCompare("Pennsylvania") == 0 ||
+    region_inp.localeCompare("PA") == 0
+  ) {
     let ak_dict = mydatas["pa"];
     var keys = $.map(ak_dict, function (value, key) {
       return key;
