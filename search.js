@@ -76,6 +76,7 @@ let states = [
 ];
 
 let treatments = [
+  "Covid Testing",
   "Propaedeutic",
   "Auscultation",
   "Medical inspection (body features)",
