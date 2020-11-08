@@ -378,27 +378,32 @@ function onTResponse(jsonBody) {
   var mydatas = JSON.parse(result[0][1]);
 }
 
-function printClearCareData(hospList, idList) {
-  console.log("Hospital List: ", hospList);
+function printClearCareData(hospList, idList, treatmentType) {
   let i;
   let str = "";
 
+  /*
   var ccElement = document.getElementById("cc-text");
   var ccHead = document.getElementById("cc-header");
   ccHead.appendChild(document.createTextNode("ClearCare Data"));
+  */
+
+  const tableBody = document.getElementById("tableData");
+  let dataHtml = "";
 
   for (i = 0; i < hospList.length; i++) {
     str = hospList[i] + " NO INSURANCE " + idTreatments[idList[i]];
+    let price = "";
+    if (idTreatments[idList[i]] == undefined) price = "NO PRICE DATA";
+    else price = "$" + idTreatments[idList[i]];
+
+    dataHtml += `<tr><td>${hospList[i]}</td><td>${treatmentType}</td><td>${price}</td></tr>`;
 
     if (idTreatments[idList[i]] == undefined) {
       str = hospList[i] + " NO INSURANCE NO DATA";
     }
-    var node = document.createTextNode(str);
-    ccElement.appendChild(node);
-    ccElement.appendChild(document.createElement("br"));
-
-    console.log(str);
   }
+  tableBody.innerHTML = dataHtml;
 }
 
 function onResponse(jsonBody) {
@@ -434,7 +439,12 @@ function onResponse(jsonBody) {
           idTreatments[keys[i]]
       );
     }
-    printClearCareData(listOfHospitals, listOfHospitalID);
+
+    printClearCareData(
+      listOfHospitals,
+      listOfHospitalID,
+      "COVID-19 Antibody Test"
+    );
   }
 
   if (region_inp.localeCompare("Pennsylvania") == 0) {
@@ -455,7 +465,7 @@ function onResponse(jsonBody) {
           idTreatments[keys[i]]
       );
     }
-    printClearCareData(listOfHospitals, listOfHospitalID);
+    printClearCareData(listOfHospitals, listOfHospitalID, "Insulin Test");
   }
 }
 
