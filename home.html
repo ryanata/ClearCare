@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD <head>
+
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="home_styles.css" type="text/css" />
@@ -8,39 +9,39 @@
   <script src="./geosearch.js"></script>
   <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
   <title>ClearCare</title>
-  </head>
+</head>
 
-  <body>
-    <header>
-      <div class="container">
-        <img src="clear_care_logo.png" alt="logo" class="logo" width="75px" height="75px" />
+<body>
+  <header>
+    <div class="container">
+      <img src="clear_care_logo.png" alt="logo" class="logo" width="75px" height="75px" />
 
-        <div class="navigation">
-          <nav>
-            <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="contribute.html">Contribute</a></li>
-              <li><a href="about.html">About</a></li>
-            </ul>
-          </nav>
+      <div class="navigation">
+        <nav>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="contribute.html">Contribute</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </div>
+    <div class="form_div">
+      <!--return false prevents the form from redirecting-->
+      <form class="autocomplete form" autocomplete="off" onsubmit="return false">
+        <div class="autocomplete">
+          <input id="treatmentSearch" type="text" placeholder="Treatment / Illness" />
         </div>
-      </div>
-      </div>
-      <div class="form_div">
-        <!--return false prevents the form from redirecting-->
-        <form class="autocomplete form" autocomplete="off" onsubmit="return false">
-          <div class="autocomplete">
-            <input id="treatmentSearch" type="text" placeholder="Treatment / Illness" />
-          </div>
-          <div class="autocomplete" id="regionDiv">
-            <input id="regionSearch" type="text" placeholder="Enter city, state, or zip code" />
-          </div>
-          <input id="submitButton" type="submit" onclick="getData()"></button>
-          <button class="geo-button" id="geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
-        </form>
-      </div>
-      <script src="search.js" type="module"></script>
-  </body>
+        <div class="autocomplete" id="regionDiv">
+          <input id="regionSearch" type="text" placeholder="Enter city, state, or zip code" />
+        </div>
+        <input id="submitButton" type="submit" onclick="getData()"></button>
+        <button class="geo-button" id="geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
+      </form>
+    </div>
+    <script src="search.js" type="module"></script>
+</body>
 
 </html>
 </header>
