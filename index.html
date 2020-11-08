@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./geosearch.js"></script>
+    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
     <title>ClearCare</title>
   </head>
   <body>
@@ -29,12 +31,23 @@
             <input id="regionSearch" type="text" placeholder="Region" />
           </div>
           <button class="geo-button" id = "geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
-          <button class="submit-button" onclick="getData()">Submit</button>
+          <!--
+          <script type="text/javascript">
+            $(document).ready(function(){
+            
+            $('#geo').click(function(){
+              console.log("wORKED?");
+              $('#regionSearch').val("Button clicked");
+            });
+            });
+          </script>
+        -->
+          <button class="submit-button" id = "search-submit-button" onclick="getData()">Submit</button>
         </form>
       </div>
       <p id="searchResult"></p>
     </div>
+    <script src="./search.js"></script>
     
-    <script type="text/javascript" src="search.js"></script>
 </body>
 </html>
