@@ -26,7 +26,7 @@
               type="text"
               placeholder="Treatment / Illness"
             />
-            
+
           </div>
           <div class="autocomplete" style="width: 300px">
             <input id="regionSearch" type="text" placeholder="Region" />
@@ -37,7 +37,15 @@
           <button class="submit-button" id = "search-submit-button" onclick="getData()">Submit</button>
         </form>
       </div>
-      <p id="searchResult"></p>
+      
+      <div class="bottom-output">
+        <h1 id = "cc-header">
+        </h1>
+        <div class = "cc-data" id = "cc-div">
+          <p id = "cc-text"></p>
+        </div>
+      </div>
+
     </div>
     <script src="./search.js"></script>
     

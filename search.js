@@ -1,3 +1,4 @@
+let idTreatments= {"114":17.0,"115":17.0,"699669":65.0,"999506":64.0,"1299701":31.0,"1799835":100.0,"2099559":25.0,"2299752":64.0,"3018603":27.0,"3219320":27.0,"4519013":17.0,"4819026":7.0,"9208079":22.0,"10018510":29.0,"11219464":18.0,"12308085":22.0,"12316137":18.0,"12316148":18.0,"12319342":17.0,"12319512":18.0,"13016146":18.0,"21818657":29.0}
 let states = [
   "AL",
   "AK",
@@ -343,18 +344,49 @@ function autocomplete(inp, arr) {
 autocomplete(document.getElementById("treatmentSearch"), treatments);
 autocomplete(document.getElementById("regionSearch"), states);
 
-function myFunction() {
-  var x = document.getElementById("treatmentSearch").value;
-  var y = document.getElementById("regionSearch").value;
-  document.getElementById("searchResult").innerHTML =
-    x + " is the treatment. " + y + " is the region.";
+
+function onTResponse(jsonBody) {
+  console.log(jsonBody);
+
+  var result = [];
+
+  for (var i in jsonBody) {
+    result.push([i, jsonBody[i]]);
+  }
+  var mydatas = JSON.parse(result[0][1]);
+}
+
+
+function printClearCareData(hospList, idList){
+  let i;
+  let str = "";
+
+  var ccElement = document.getElementById("cc-text");
+  var ccHead = document.getElementById("cc-header");
+  ccHead.appendChild(document.createTextNode("ClearCare Data"));
+
+  for (i = 0; i < hospList.length; i++){
+    str = hospList[i] + " NO INSURANCE " + idTreatments[idList[i]];
+    
+    if (idTreatments[idList[i]] == undefined)
+    {
+      str = hospList[i] + " NO INSURANCE NO DATA"
+    }
+    var node = document.createTextNode(str);
+    ccElement.appendChild(node);
+    ccElement.appendChild(document.createElement('br'));
+ 
+
+    console.log(str);
+  }
+  
+
 }
 
 function onResponse(jsonBody) {
   console.log(jsonBody);
   let region_inp = document.getElementById("regionSearch").value;
   var result = [];
-
   for (var i in jsonBody) {
     result.push([i, jsonBody[i]]);
   }
@@ -363,22 +395,69 @@ function onResponse(jsonBody) {
   // mydatas now holds the dictionary to the entire database
   // we need to file what hospitals are close to the "region" input
   console.log(region_inp);
+  let listOfHospitals = [];
+  let listOfHospitalID = [];
+
   if (region_inp.localeCompare("AK") == 0){
     let ak_dict = mydatas["ak"];
-    console.log(ak_dict);
     var keys = $.map(ak_dict, function(value, key) { return key });
     var i;
     for (i in keys){
-      console.log(ak_dict[keys[i]]);
+      listOfHospitals.push((ak_dict[keys[i]])["name"]);
+      listOfHospitalID.push(keys[i]);
+      console.log("Hospital ID : " + (keys[i]) + " Hospital Name : " + (ak_dict[keys[i]])["name"] + " Treatment Cost " + idTreatments[keys[i]]); 
     }
-    console.log(keys);
-    console.log("worked");
+    printClearCareData(listOfHospitals, listOfHospitalID)
+  }
+
+  if (region_inp.localeCompare("Pennsylvania") == 0){
+    let ak_dict = mydatas["pa"];
+    var keys = $.map(ak_dict, function(value, key) { return key });
+    var i;
+    for (i in keys){
+      listOfHospitals.push((ak_dict[keys[i]])["name"]);
+      listOfHospitalID.push(keys[i]);
+      console.log("Hospital ID : " + (keys[i]) + " Hospital Name : " + (ak_dict[keys[i]])["name"] + " Treatment Cost " + idTreatments[keys[i]]); 
+    }
+    printClearCareData(listOfHospitals, listOfHospitalID)
   }
   
 }
 
+
+
+function getTreatmentData() {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = "";
+
+  var requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  fetch(
+    "https://industrial-silo-289002.firebaseio.com/treatment.json",
+    requestOptions
+  )
+    .then(function (response) {
+      response
+        .text()
+        .then((data) => ({
+          data: data,
+          status: response.status,
+        }))
+        .then(function (res) {
+          onTResponse(res);
+        });
+    })
+    .catch((error) => console.log("error", error));
+}
+
+
 function getData() {
-  myFunction();
+  getTreatmentData()
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -406,4 +485,5 @@ function getData() {
     })
     .catch((error) => console.log("error", error));
 }
+
 
