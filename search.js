@@ -379,6 +379,7 @@ function onTResponse(jsonBody) {
 }
 
 function printClearCareData(hospList, idList) {
+  console.log("Hospital List: ", hospList);
   let i;
   let str = "";
 
