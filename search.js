@@ -338,8 +338,6 @@ function myFunction() {
 
 function onResponse(jsonBody) {
   console.log(jsonBody);
-  var obj = JSON.parse(jsonBody);
-  console.log(obj);
 }
 
 function getData() {
@@ -359,7 +357,7 @@ function getData() {
   )
     .then(function (response) {
       response
-        .data()
+        .text()
         .then((data) => ({
           data: data,
           status: response.status,
