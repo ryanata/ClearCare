@@ -1,63 +1,69 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Contribute</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="contribute_styles.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contribute_styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Muli'   rel='stylesheet'>
+</head>
+<body>
     <header>
-      <div class="container">
-        <img
-          src="clear_care_logo.png"
-          alt="logo"
-          class="logo"
-          width="75px"
-          height="75px"
-        />
-
-        <div class="navigation">
-          <nav>
-            <ul>
-              <li><a href="home.html">Home</a></li>
-              <li><a href="contribute.html">Contribute</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <p>
-      <h1 style="margin-left:1%">Make a Contribution!</h1>
-    </p>
-    <div class="form_div" style="margin-top:.5%; margin-left:1%">
-      <form action="">
-        <div>
-          <div class="contribute" style="width: 300px; margin-top:.5%">
-            <input id="location" type="text" placeholder="Location" />
-          </div>
-          <div class="contribute" style="width: 300px; margin-top:.5%">
-            <input id="nameOfHospital" type="text" placeholder="Name of Hospital" />
+        <div class="container">
+          <img
+            src="clear_care_logo.png"
+            alt="logo"
+            class="logo"
+            width="75px"
+            height="75px"
+          />
+  
+          <div class="navigation">
+            <nav>
+              <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contribute.html">Contribute</a></li>
+                <li><a href="about.html">About</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
-        <div style="margin-top:1%">
-          <div class="contribute" style="width: 300px;margin-top:.5%">
-            <input id="typeOfTreatment" type="text" placeholder="Type of Treatment" />
-          </div>
-          <div class="contribute" style="width: 300px; margin-top:.5%">
-            <input id="costOfTreatment" type="text" placeholder="Cost of Treatment" />
-          </div>
+      </header>
+      <p id="contribution"></p>
+    <div class="formContainer">
+        <div class="formHolder">
+            <div class="formHeader">
+                <p>Contribute</p>
+            </div>
+            <form onsubmit="return false" id="contribution-form">
+                <div>
+                    <h5>Name of Hospital</h5>
+                    <input placeholder="Hospital">
+                </div>
+                <div>
+                    <h5>Name of Insurer</h5>
+                    <input placeholder="Insurer">
+                </div>
+                <div>
+                    <h5>Category</h5>
+                    <input placeholder="Treatment">
+                </div>
+                <div>
+                    <button onclick="getContribution()">Submit</button>
+                </div>
+            </form>
         </div>
-        <button class="submit-button" type="button" style="margin-top:1%" id = "search-submit-button" onclick="getContribution()">Submit</button>
-      </form>
     </div>
-    <p id="contribution"></p>
-    <script src="./contribute.js" async defer></script>
-  </body>
+
+    <script>
+      function getContribution() {
+      document.getElementById("contribution").innerHTML =
+      "Thank you for your contribution towards a stronger healthcare system.";
+      document.getElementById("contribution-form").reset();
+      window.scrollTo(50, 20);
+    }
+
+    </script>
+
+    
+</body>
 </html>
