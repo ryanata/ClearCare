@@ -100,3 +100,22 @@ nav a:hover::before {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.hospital_table {
+  padding: 8px;
+}
+
+.hospital_table table thead tr th {
+  border: 1px solid #cccccc;
+  padding: 10px;
+}
+
+.hospital_table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.hospital_table table thead th {
+  font-weight: bold;
+  text-transform: uppercase;
+}
