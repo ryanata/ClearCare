@@ -60,6 +60,182 @@ var states = [
   "Wyoming",
 ];
 
+treatments = [
+  "Propaedeutic",
+  "Auscultation",
+  "Medical inspection (body features)",
+  "Palpation",
+  "Percussion (medicine)",
+  "Vital signs measurement, such as blood pressure, body temperature, or pulse (or heart rate)",
+  "Diagnostic",
+  "Lab tests",
+  "Biopsy test",
+  "Blood test",
+  "Stool test",
+  "Urinalysis",
+  "Cardiac stress test",
+  "Electrocardiography",
+  "Electrocorticography",
+  "Electroencephalography",
+  "Electromyography",
+  "Electroneuronography",
+  "Electronystagmography",
+  "Electrooculography",
+  "Electroretinography",
+  "Endoluminal capsule monitoring",
+  "Endoscopy",
+  "Colonoscopy",
+  "Colposcopy",
+  "Cystoscopy",
+  "Gastroscopy",
+  "Laparoscopy",
+  "Laryngoscopy",
+  "Ophthalmoscopy",
+  "Otoscopy",
+  "Sigmoidoscopy",
+  "Esophageal motility study",
+  "Evoked potential",
+  "Magnetoencephalography",
+  "Medical imaging",
+  "Angiography",
+  "Aortography",
+  "Cerebral angiography",
+  "Coronary angiography",
+  "Lymphangiography",
+  "Pulmonary angiography",
+  "Ventriculography",
+  "Chest photofluorography",
+  "Computed tomography",
+  "Echocardiography",
+  "Electrical impedance tomography",
+  "Fluoroscopy",
+  "Magnetic resonance imaging",
+  "Diffuse optical imaging",
+  "Diffusion tensor imaging",
+  "Diffusion-weighted imaging",
+  "Functional magnetic resonance imaging",
+  "Positron emission tomography",
+  "Radiography",
+  "Scintillography",
+  "SPECT",
+  "Ultrasonography",
+  "Contrast-enhanced ultrasound",
+  "Gynecologic ultrasonography",
+  "Intravascular ultrasound",
+  "Obstetric ultrasonography",
+  "Thermography",
+  "Virtual colonoscopy",
+  "Neuroimaging",
+  "Posturography",
+  "Therapeutic",
+  "See also: Therapy and List of surgical procedures",
+  "Thrombosis prophylaxis",
+  "Precordial thump",
+  "Politzerization",
+  "Hemodialysis",
+  "Hemofiltration",
+  "Plasmapheresis",
+  "Apheresis",
+  "Extracorporeal membrane oxygenation (ECMO)",
+  "Cancer immunotherapy",
+  "Cancer vaccine",
+  "Cervical conization",
+  "Chemotherapy",
+  "Cytoluminescent therapy",
+  "Insulin potentiation therapy",
+  "Low-dose chemotherapy",
+  "Monoclonal antibody therapy",
+  "Photodynamic therapy",
+  "Radiation therapy",
+  "Targeted therapy",
+  "Tracheal intubation",
+  "Unsealed source radiotherapy",
+  "Virtual reality therapy",
+  "Physical therapy/Physiotherapy",
+  "Speech therapy",
+  "Phototerapy",
+  "Hydrotherapy",
+  "Heat therapy",
+  "Shock therapy",
+  "Insulin shock therapy",
+  "Electroconvulsive therapy",
+  "Symptomatic treatment",
+  "Fluid replacement therapy",
+  "Palliative care",
+  "Hyperbaric oxygen therapy",
+  "Oxygen therapy",
+  "Gene therapy",
+  "Enzyme replacement therapy",
+  "Intravenous therapy",
+  "Phage therapy",
+  "Respiratory therapy",
+  "Vision therapy",
+  "Electrotherapy",
+  "Transcutaneous electrical nerve stimulation (TENS)",
+  "Laser therapy",
+  "Combination therapy",
+  "Occupational therapy",
+  "Immunization",
+  "Vaccination",
+  "Immunosuppressive therapy",
+  "Psychotherapy",
+  "Drug therapy",
+  "Acupuncture",
+  "Antivenom",
+  "Magnetic therapy",
+  "Craniosacral therapy",
+  "Chelation therapy",
+  "Hormonal therapy",
+  "Hormone replacement therapy",
+  "Opiate replacement therapy",
+  "Cell therapy",
+  "Stem cell treatments",
+  "Intubation",
+  "Nebulization",
+  "Inhalation therapy",
+  "Particle therapy",
+  "Proton therapy",
+  "Fluoride therapy",
+  "Cold compression therapy",
+  "Animal-Assisted Therapy",
+  "Negative Pressure Wound Therapy",
+  "Nicotine replacement therapy",
+  "Oral rehydration therapy",
+  "Surgical",
+  "Ablation",
+  "Amputation",
+  "Biopsy",
+  "Cardiopulmonary resuscitation (CPR)",
+  "Cryosurgery",
+  "Endoscopic surgery",
+  "Facial rejuvenation",
+  "General surgery",
+  "Hand surgery",
+  "Hemilaminectomy",
+  "Image-guided surgery",
+  "Knee cartilage replacement therapy",
+  "Laminectomy",
+  "Laparoscopic surgery",
+  "Lithotomy",
+  "Lithotriptor",
+  "Lobotomy",
+  "Neovaginoplasty",
+  "Radiosurgery",
+  "Stereotactic surgery",
+  "Radiosurgery",
+  "Vaginoplasty",
+  "Xenotransplantation",
+  "Anesthesia",
+  "Dissociative anesthesia[citation needed]",
+  "General anesthesia",
+  "Local anesthesia",
+  "Topical anesthesia (surface)",
+  "Epidural (extradural) block",
+  "Spinal anesthesia (subarachnoid block)",
+  "Topical anesthesia (surface)",
+  "Regional anesthesia",
+];
+
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -164,7 +340,7 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById("treatmentSearch"), states);
+autocomplete(document.getElementById("treatmentSearch"), treatments);
 autocomplete(document.getElementById("regionSearch"), states);
 
 function myFunction() {
@@ -174,15 +350,13 @@ function myFunction() {
     x + " is the treatment. " + y + " is the region.";
 }
 
-
-
 function onResponse(jsonBody) {
-  console.log(jsonBody)
-  
+  console.log(jsonBody);
+
   var result = [];
 
-  for(var i in jsonBody){
-    result.push([i, jsonBody [i]]);
+  for (var i in jsonBody) {
+    result.push([i, jsonBody[i]]);
   }
   var mydatas = JSON.parse(result[0][1]);
 
@@ -191,8 +365,7 @@ function onResponse(jsonBody) {
 
   console.log(mydatas["699669"]);
 
-  document.getElementById("searchResult").innerHTML =
-    "The ciy is " + mydatas
+  document.getElementById("searchResult").innerHTML = "The ciy is " + mydatas;
 }
 
 function getData() {
@@ -225,18 +398,20 @@ function getData() {
     .catch((error) => console.log("error", error));
 }
 
-  var searchElement = document.getElementById("searchResult");
+var searchElement = document.getElementById("searchResult");
 
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      searchElement.innerHTML = "Geolocation is not supported by this browser.";
-    }
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    searchElement.innerHTML = "Geolocation is not supported by this browser.";
   }
+}
 
-  function showPosition(position) {
-    searchElement.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
-  }
-
+function showPosition(position) {
+  searchElement.innerHTML =
+    "Latitude: " +
+    position.coords.latitude +
+    "<br>Longitude: " +
+    position.coords.longitude;
+}
