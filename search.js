@@ -164,8 +164,8 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById("treatmentSearch"), countries);
-autocomplete(document.getElementById("regionSearch"), countries);
+autocomplete(document.getElementById("treatmentSearch"), states);
+autocomplete(document.getElementById("regionSearch"), states);
 
 function myFunction() {
   var x = document.getElementById("treatmentSearch").value;
