@@ -38,19 +38,23 @@
     </p>
     <div class="form_div" style="margin-top:.5%; margin-left:1%">
       <form action="">
-        <div style="width: 300px; margin-top:.5%">
-          <input id="nameOfHospital" type="text" placeholder="Name of Hospital" />
+        <div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="location" type="text" placeholder="Location" />
+          </div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="nameOfHospital" type="text" placeholder="Name of Hospital" />
+          </div>
         </div>
-        <div style="width: 300px; margin-top:.5%">
-          <input id="location" type="text" placeholder="Location" />
+        <div style="margin-top:1%">
+          <div class="contribute" style="width: 300px;margin-top:.5%">
+            <input id="typeOfTreatment" type="text" placeholder="Type of Treatment" />
+          </div>
+          <div class="contribute" style="width: 300px; margin-top:.5%">
+            <input id="costOfTreatment" type="text" placeholder="Cost of Treatment" />
+          </div>
         </div>
-        <div style="width: 300px;margin-top:.5%">
-          <input id="typeOfTreatment" type="text" placeholder="Type of Treatment" />
-        </div>
-        <div style="width: 300px; margin-top:.5%">
-          <input id="costOfTreatment" type="text" placeholder="Cost of Treatment" />
-        </div>
-        <button class="submit-button" type="button" style="margin-top:.5%" id = "search-submit-button" onclick="getContribution()">Submit</button>
+        <button class="submit-button" type="button" style="margin-top:1%" id = "search-submit-button" onclick="getContribution()">Submit</button>
       </form>
     </div>
     <p id="contribution"></p>
