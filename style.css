@@ -49,6 +49,8 @@ input[type=submit] {
 }
 
 .full-div{
+  height: 100%;
+  width: 100%;
 }
 
 .top-nav-div{

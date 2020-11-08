@@ -1,64 +1,4 @@
-var states = [
-  "Alabama",
-  "Alaska",
-  "American Samoa",
-  "Arizona",
-  "Arkansas",
-  "California",
-  "Colorado",
-  "Connecticut",
-  "Delaware",
-  "District of Columbia",
-  "Federated States of Micronesia",
-  "Florida",
-  "Georgia",
-  "Guam",
-  "Hawaii",
-  "Idaho",
-  "Illinois",
-  "Indiana",
-  "Iowa",
-  "Kansas",
-  "Kentucky",
-  "Louisiana",
-  "Maine",
-  "Marshall Islands",
-  "Maryland",
-  "Massachusetts",
-  "Michigan",
-  "Minnesota",
-  "Mississippi",
-  "Missouri",
-  "Montana",
-  "Nebraska",
-  "Nevada",
-  "New Hampshire",
-  "New Jersey",
-  "New Mexico",
-  "New York",
-  "North Carolina",
-  "North Dakota",
-  "Northern Mariana Islands",
-  "Ohio",
-  "Oklahoma",
-  "Oregon",
-  "Palau",
-  "Pennsylvania",
-  "Puerto Rico",
-  "Rhode Island",
-  "South Carolina",
-  "South Dakota",
-  "Tennessee",
-  "Texas",
-  "Utah",
-  "Vermont",
-  "Virgin Island",
-  "Virginia",
-  "Washington",
-  "West Virginia",
-  "Wisconsin",
-  "Wyoming",
-];
+import { STATES, TREATMENTS } from "./constants.js";
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -164,8 +104,8 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById("treatmentSearch"), states);
-autocomplete(document.getElementById("regionSearch"), states);
+autocomplete(document.getElementById("treatmentSearch"), TREATMENTS);
+autocomplete(document.getElementById("regionSearch"), STATES);
 
 function myFunction() {
   var x = document.getElementById("treatmentSearch").value;
@@ -174,15 +114,13 @@ function myFunction() {
     x + " is the treatment. " + y + " is the region.";
 }
 
-
-
 function onResponse(jsonBody) {
-  console.log(jsonBody)
-  
+  console.log(jsonBody);
+
   var result = [];
 
-  for(var i in jsonBody){
-    result.push([i, jsonBody [i]]);
+  for (var i in jsonBody) {
+    result.push([i, jsonBody[i]]);
   }
   var mydatas = JSON.parse(result[0][1]);
 
@@ -191,8 +129,12 @@ function onResponse(jsonBody) {
 
   console.log(mydatas);
 
+<<<<<<< HEAD
   //document.getElementById("searchResult").innerHTML =
   //  "The ciy is " + mydatas
+=======
+  document.getElementById("searchResult").innerHTML = "The ciy is " + mydatas;
+>>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
 }
 
 function getData() {
@@ -221,7 +163,26 @@ function getData() {
           onResponse(res);
         });
     })
-    .then(function (result) {})
     .catch((error) => console.log("error", error));
 }
 
+<<<<<<< HEAD
+=======
+var searchElement = document.getElementById("searchResult");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    searchElement.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  searchElement.innerHTML =
+    "Latitude: " +
+    position.coords.latitude +
+    "<br>Longitude: " +
+    position.coords.longitude;
+}
+>>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
