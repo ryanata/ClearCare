@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="home_styles.css" type="text/css" />
+    <script src="search.js"></script>
     <title>ClearCare</title>
   </head>
 
@@ -32,15 +33,23 @@
       </div>
     </header>
     <div class="form_div">
-      <form class="enter_location" autocomplete="off" onsubmit="return false">
-        <div class="text_region">
+      <!--return false prevents the form from redirecting-->
+      <form
+        class="autocomplete form"
+        autocomplete="off"
+        onsubmit="return false"
+      >
+        <div class="autocomplete">
           <input
-            id="location_search"
+            id="treatmentSearch"
             type="text"
-            placeholder="Enter zip code here"
+            placeholder="Treatment / Illness"
           />
-          <input type="submit" value="Submit" />
         </div>
+        <div class="autocomplete">
+          <input id="regionSearch" type="text" placeholder="Enter city, state, or zip code" />
+        </div>
+        <input type="submit" onclick="getData()"></button>
       </form>
     </div>
   </body>
