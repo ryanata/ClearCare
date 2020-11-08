@@ -336,8 +336,25 @@ function myFunction() {
     x + " is the treatment. " + y + " is the region.";
 }
 
+
+
 function onResponse(jsonBody) {
-  console.log(jsonBody);
+  console.log(jsonBody)
+  
+  var result = [];
+
+  for(var i in jsonBody){
+    result.push([i, jsonBody [i]]);
+  }
+  var mydatas = JSON.parse(result[0][1]);
+
+  // mydatas now holds the dictionary to the entire database
+  // we need to file what hospitals are close to the "region" input
+
+  console.log(mydatas["699669"]);
+
+  document.getElementById("searchResult").innerHTML =
+    "The ciy is " + mydatas
 }
 
 function getData() {
@@ -369,3 +386,19 @@ function getData() {
     .then(function (result) {})
     .catch((error) => console.log("error", error));
 }
+
+  var searchElement = document.getElementById("searchResult");
+
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      searchElement.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    searchElement.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+  }
+
