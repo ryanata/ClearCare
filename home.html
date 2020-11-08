@@ -26,7 +26,6 @@
         </nav>
       </div>
     </div>
-    </div>
     <div class="form_div">
       <!--return false prevents the form from redirecting-->
       <form class="autocomplete form" autocomplete="off" onsubmit="return false">
@@ -40,7 +39,6 @@
         <button class="geo-button" id="geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
       </form>
     </div>
-    <script src="search.js" type="module"></script>
 </body>
 
 </html>
@@ -54,13 +52,12 @@
         <th>Location</th>
         <th>Price</th>
       </tr>
-    <tbody id="tableData" onload="loadTable()"></tbody>
+    <tbody id="tableData"></tbody>
     </thead>
   </table>
 </div>
 <script src="table.js" type="module"></script>
-<script src="search.js" type="module"></script>
-
+<script src="search.js"></script>
 
 </body>
 

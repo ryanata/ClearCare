@@ -94,11 +94,20 @@ nav a:hover::before {
 }
 
 .form_div {
+  display: flex;
   margin: 0 auto;
+  max-height: 100%;
   position: absolute;
   left: 50%;
-  top: 20%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
+}
+
+.hospital_table {
+  display: flex;
+  position: absolute;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-54%, 120%);
 }
 
 td,
@@ -109,12 +118,8 @@ th {
 
 table {
   font-family: Arial, Helvetica, sans-serif;
-  position: absolute;
   border-collapse: collapse;
-  width: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 35%;
+  width: 700px;
 }
 
 table thead th {
