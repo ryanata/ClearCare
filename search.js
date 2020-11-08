@@ -1,4 +1,27 @@
-let idTreatments= {"114":17.0,"115":17.0,"699669":65.0,"999506":64.0,"1299701":31.0,"1799835":100.0,"2099559":25.0,"2299752":64.0,"3018603":27.0,"3219320":27.0,"4519013":17.0,"4819026":7.0,"9208079":22.0,"10018510":29.0,"11219464":18.0,"12308085":22.0,"12316137":18.0,"12316148":18.0,"12319342":17.0,"12319512":18.0,"13016146":18.0,"21818657":29.0}
+let idTreatments = {
+  114: 17.0,
+  115: 17.0,
+  699669: 65.0,
+  999506: 64.0,
+  1299701: 31.0,
+  1799835: 100.0,
+  2099559: 25.0,
+  2299752: 64.0,
+  3018603: 27.0,
+  3219320: 27.0,
+  4519013: 17.0,
+  4819026: 7.0,
+  9208079: 22.0,
+  10018510: 29.0,
+  11219464: 18.0,
+  12308085: 22.0,
+  12316137: 18.0,
+  12316148: 18.0,
+  12319342: 17.0,
+  12319512: 18.0,
+  13016146: 18.0,
+  21818657: 29.0,
+};
 let states = [
   "AL",
   "AK",
@@ -344,7 +367,6 @@ function autocomplete(inp, arr) {
 autocomplete(document.getElementById("treatmentSearch"), treatments);
 autocomplete(document.getElementById("regionSearch"), states);
 
-
 function onTResponse(jsonBody) {
   console.log(jsonBody);
 
@@ -356,8 +378,7 @@ function onTResponse(jsonBody) {
   var mydatas = JSON.parse(result[0][1]);
 }
 
-
-function printClearCareData(hospList, idList){
+function printClearCareData(hospList, idList) {
   let i;
   let str = "";
 
@@ -365,22 +386,18 @@ function printClearCareData(hospList, idList){
   var ccHead = document.getElementById("cc-header");
   ccHead.appendChild(document.createTextNode("ClearCare Data"));
 
-  for (i = 0; i < hospList.length; i++){
+  for (i = 0; i < hospList.length; i++) {
     str = hospList[i] + " NO INSURANCE " + idTreatments[idList[i]];
-    
-    if (idTreatments[idList[i]] == undefined)
-    {
-      str = hospList[i] + " NO INSURANCE NO DATA"
+
+    if (idTreatments[idList[i]] == undefined) {
+      str = hospList[i] + " NO INSURANCE NO DATA";
     }
     var node = document.createTextNode(str);
     ccElement.appendChild(node);
-    ccElement.appendChild(document.createElement('br'));
- 
+    ccElement.appendChild(document.createElement("br"));
 
     console.log(str);
   }
-  
-
 }
 
 function onResponse(jsonBody) {
@@ -398,33 +415,48 @@ function onResponse(jsonBody) {
   let listOfHospitals = [];
   let listOfHospitalID = [];
 
-  if (region_inp.localeCompare("AK") == 0){
+  if (region_inp.localeCompare("AK") == 0) {
     let ak_dict = mydatas["ak"];
-    var keys = $.map(ak_dict, function(value, key) { return key });
+    var keys = $.map(ak_dict, function (value, key) {
+      return key;
+    });
     var i;
-    for (i in keys){
-      listOfHospitals.push((ak_dict[keys[i]])["name"]);
+    for (i in keys) {
+      listOfHospitals.push(ak_dict[keys[i]]["name"]);
       listOfHospitalID.push(keys[i]);
-      console.log("Hospital ID : " + (keys[i]) + " Hospital Name : " + (ak_dict[keys[i]])["name"] + " Treatment Cost " + idTreatments[keys[i]]); 
+      console.log(
+        "Hospital ID : " +
+          keys[i] +
+          " Hospital Name : " +
+          ak_dict[keys[i]]["name"] +
+          " Treatment Cost " +
+          idTreatments[keys[i]]
+      );
     }
-    printClearCareData(listOfHospitals, listOfHospitalID)
+    printClearCareData(listOfHospitals, listOfHospitalID);
   }
 
-  if (region_inp.localeCompare("Pennsylvania") == 0){
+  if (region_inp.localeCompare("Pennsylvania") == 0) {
     let ak_dict = mydatas["pa"];
-    var keys = $.map(ak_dict, function(value, key) { return key });
+    var keys = $.map(ak_dict, function (value, key) {
+      return key;
+    });
     var i;
-    for (i in keys){
-      listOfHospitals.push((ak_dict[keys[i]])["name"]);
+    for (i in keys) {
+      listOfHospitals.push(ak_dict[keys[i]]["name"]);
       listOfHospitalID.push(keys[i]);
-      console.log("Hospital ID : " + (keys[i]) + " Hospital Name : " + (ak_dict[keys[i]])["name"] + " Treatment Cost " + idTreatments[keys[i]]); 
+      console.log(
+        "Hospital ID : " +
+          keys[i] +
+          " Hospital Name : " +
+          ak_dict[keys[i]]["name"] +
+          " Treatment Cost " +
+          idTreatments[keys[i]]
+      );
     }
-    printClearCareData(listOfHospitals, listOfHospitalID)
+    printClearCareData(listOfHospitals, listOfHospitalID);
   }
-  
 }
-
-
 
 function getTreatmentData() {
   var myHeaders = new Headers();
@@ -455,9 +487,8 @@ function getTreatmentData() {
     .catch((error) => console.log("error", error));
 }
 
-
 function getData() {
-  getTreatmentData()
+  getTreatmentData();
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -485,5 +516,3 @@ function getData() {
     })
     .catch((error) => console.log("error", error));
 }
-
-
