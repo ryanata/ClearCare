@@ -26,22 +26,14 @@
               type="text"
               placeholder="Treatment / Illness"
             />
+            
           </div>
           <div class="autocomplete" style="width: 300px">
             <input id="regionSearch" type="text" placeholder="Region" />
           </div>
+
           <button class="geo-button" id = "geo" onclick="getLocation()"><i class="fa fa-map-marker"></i></button>
-          <!--
-          <script type="text/javascript">
-            $(document).ready(function(){
-            
-            $('#geo').click(function(){
-              console.log("wORKED?");
-              $('#regionSearch').val("Button clicked");
-            });
-            });
-          </script>
-        -->
+          
           <button class="submit-button" id = "search-submit-button" onclick="getData()">Submit</button>
         </form>
       </div>

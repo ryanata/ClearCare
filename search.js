@@ -1,4 +1,240 @@
-import { STATES, TREATMENTS } from "./constants.js";
+let states = [
+  "AL",
+  "AK",
+  "AS",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "DC",
+  "FM",
+  "FL",
+  "GA",
+  "GU",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MH",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "MP",
+  "OH",
+  "OK",
+  "OR",
+  "PW",
+  "PA",
+  "PR",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VI",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
+];
+
+let treatments = [
+  "Propaedeutic",
+  "Auscultation",
+  "Medical inspection (body features)",
+  "Palpation",
+  "Percussion (medicine)",
+  "Vital signs measurement, such as blood pressure, body temperature, or pulse (or heart rate)",
+  "Diagnostic",
+  "Lab tests",
+  "Biopsy test",
+  "Blood test",
+  "Stool test",
+  "Urinalysis",
+  "Cardiac stress test",
+  "Electrocardiography",
+  "Electrocorticography",
+  "Electroencephalography",
+  "Electromyography",
+  "Electroneuronography",
+  "Electronystagmography",
+  "Electrooculography",
+  "Electroretinography",
+  "Endoluminal capsule monitoring",
+  "Endoscopy",
+  "Colonoscopy",
+  "Colposcopy",
+  "Cystoscopy",
+  "Gastroscopy",
+  "Laparoscopy",
+  "Laryngoscopy",
+  "Ophthalmoscopy",
+  "Otoscopy",
+  "Sigmoidoscopy",
+  "Esophageal motility study",
+  "Evoked potential",
+  "Magnetoencephalography",
+  "Medical imaging",
+  "Angiography",
+  "Aortography",
+  "Cerebral angiography",
+  "Coronary angiography",
+  "Lymphangiography",
+  "Pulmonary angiography",
+  "Ventriculography",
+  "Chest photofluorography",
+  "Computed tomography",
+  "Echocardiography",
+  "Electrical impedance tomography",
+  "Fluoroscopy",
+  "Magnetic resonance imaging",
+  "Diffuse optical imaging",
+  "Diffusion tensor imaging",
+  "Diffusion-weighted imaging",
+  "Functional magnetic resonance imaging",
+  "Positron emission tomography",
+  "Radiography",
+  "Scintillography",
+  "SPECT",
+  "Ultrasonography",
+  "Contrast-enhanced ultrasound",
+  "Gynecologic ultrasonography",
+  "Intravascular ultrasound",
+  "Obstetric ultrasonography",
+  "Thermography",
+  "Virtual colonoscopy",
+  "Neuroimaging",
+  "Posturography",
+  "Therapeutic",
+  "See also: Therapy and List of surgical procedures",
+  "Thrombosis prophylaxis",
+  "Precordial thump",
+  "Politzerization",
+  "Hemodialysis",
+  "Hemofiltration",
+  "Plasmapheresis",
+  "Apheresis",
+  "Extracorporeal membrane oxygenation (ECMO)",
+  "Cancer immunotherapy",
+  "Cancer vaccine",
+  "Cervical conization",
+  "Chemotherapy",
+  "Cytoluminescent therapy",
+  "Insulin potentiation therapy",
+  "Low-dose chemotherapy",
+  "Monoclonal antibody therapy",
+  "Photodynamic therapy",
+  "Radiation therapy",
+  "Targeted therapy",
+  "Tracheal intubation",
+  "Unsealed source radiotherapy",
+  "Virtual reality therapy",
+  "Physical therapy/Physiotherapy",
+  "Speech therapy",
+  "Phototerapy",
+  "Hydrotherapy",
+  "Heat therapy",
+  "Shock therapy",
+  "Insulin shock therapy",
+  "Electroconvulsive therapy",
+  "Symptomatic treatment",
+  "Fluid replacement therapy",
+  "Palliative care",
+  "Hyperbaric oxygen therapy",
+  "Oxygen therapy",
+  "Gene therapy",
+  "Enzyme replacement therapy",
+  "Intravenous therapy",
+  "Phage therapy",
+  "Respiratory therapy",
+  "Vision therapy",
+  "Electrotherapy",
+  "Transcutaneous electrical nerve stimulation (TENS)",
+  "Laser therapy",
+  "Combination therapy",
+  "Occupational therapy",
+  "Immunization",
+  "Vaccination",
+  "Immunosuppressive therapy",
+  "Psychotherapy",
+  "Drug therapy",
+  "Acupuncture",
+  "Antivenom",
+  "Magnetic therapy",
+  "Craniosacral therapy",
+  "Chelation therapy",
+  "Hormonal therapy",
+  "Hormone replacement therapy",
+  "Opiate replacement therapy",
+  "Cell therapy",
+  "Stem cell treatments",
+  "Intubation",
+  "Nebulization",
+  "Inhalation therapy",
+  "Particle therapy",
+  "Proton therapy",
+  "Fluoride therapy",
+  "Cold compression therapy",
+  "Animal-Assisted Therapy",
+  "Negative Pressure Wound Therapy",
+  "Nicotine replacement therapy",
+  "Oral rehydration therapy",
+  "Surgical",
+  "Ablation",
+  "Amputation",
+  "Biopsy",
+  "Cardiopulmonary resuscitation (CPR)",
+  "Cryosurgery",
+  "Endoscopic surgery",
+  "Facial rejuvenation",
+  "General surgery",
+  "Hand surgery",
+  "Hemilaminectomy",
+  "Image-guided surgery",
+  "Knee cartilage replacement therapy",
+  "Laminectomy",
+  "Laparoscopic surgery",
+  "Lithotomy",
+  "Lithotriptor",
+  "Lobotomy",
+  "Neovaginoplasty",
+  "Radiosurgery",
+  "Stereotactic surgery",
+  "Radiosurgery",
+  "Vaginoplasty",
+  "Xenotransplantation",
+  "Anesthesia",
+  "Dissociative anesthesia[citation needed]",
+  "General anesthesia",
+  "Local anesthesia",
+  "Topical anesthesia (surface)",
+  "Epidural (extradural) block",
+  "Spinal anesthesia (subarachnoid block)",
+  "Topical anesthesia (surface)",
+  "Regional anesthesia",
+];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -104,8 +340,8 @@ function autocomplete(inp, arr) {
   });
 }
 
-autocomplete(document.getElementById("treatmentSearch"), TREATMENTS);
-autocomplete(document.getElementById("regionSearch"), STATES);
+autocomplete(document.getElementById("treatmentSearch"), treatments);
+autocomplete(document.getElementById("regionSearch"), states);
 
 function myFunction() {
   var x = document.getElementById("treatmentSearch").value;
@@ -116,7 +352,7 @@ function myFunction() {
 
 function onResponse(jsonBody) {
   console.log(jsonBody);
-
+  let region_inp = document.getElementById("regionSearch").value;
   var result = [];
 
   for (var i in jsonBody) {
@@ -126,18 +362,23 @@ function onResponse(jsonBody) {
 
   // mydatas now holds the dictionary to the entire database
   // we need to file what hospitals are close to the "region" input
-
-  console.log(mydatas);
-
-<<<<<<< HEAD
-  //document.getElementById("searchResult").innerHTML =
-  //  "The ciy is " + mydatas
-=======
-  document.getElementById("searchResult").innerHTML = "The ciy is " + mydatas;
->>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
+  console.log(region_inp);
+  if (region_inp.localeCompare("AK") == 0){
+    let ak_dict = mydatas["ak"];
+    console.log(ak_dict);
+    var keys = $.map(ak_dict, function(value, key) { return key });
+    var i;
+    for (i in keys){
+      console.log(ak_dict[keys[i]]);
+    }
+    console.log(keys);
+    console.log("worked");
+  }
+  
 }
 
 function getData() {
+  myFunction();
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -149,7 +390,7 @@ function getData() {
   };
 
   fetch(
-    "https://industrial-silo-289002.firebaseio.com/states/ak.json",
+    "https://industrial-silo-289002.firebaseio.com/states.json",
     requestOptions
   )
     .then(function (response) {
@@ -166,23 +407,3 @@ function getData() {
     .catch((error) => console.log("error", error));
 }
 
-<<<<<<< HEAD
-=======
-var searchElement = document.getElementById("searchResult");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    searchElement.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  searchElement.innerHTML =
-    "Latitude: " +
-    position.coords.latitude +
-    "<br>Longitude: " +
-    position.coords.longitude;
-}
->>>>>>> c7293f2965688567b845cf2ff5ed01af5929f597
