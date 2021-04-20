@@ -4,6 +4,8 @@
 
 Aims to create health transparancy by helping people find prices for medical procedures in their area. 
 
+[![Video Walkthrough Thumbnail](https://i.imgur.com/YsICkRP.png)](https://www.youtube.com/watch?v=1088PvbfPm4)
+
 Datasets used: 
 * https://healthcostinstitute.org/data for healthcare prices 
 
